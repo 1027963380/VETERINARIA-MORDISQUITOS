@@ -4,6 +4,16 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1',
 });
 
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1',
+});
+
+const api = axios.create({
+  baseURL: import.meta.env.PROD
+    ? 'https://veterinaria-mordisquitos-production.up.railway.app/api/v1'
+    : 'http://localhost:4000/api/v1',
+});
+
 // Agrega el token a cada petición si hay sesión iniciada
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
